@@ -1,0 +1,15 @@
+E
+qE1 = gdsc (python list slicing and indexing)
+qE2 = anchor (HTML anchor tag)
+qE3 = 2345 (value of obj.b.c is stored in const d)
+qE4 = cse (the p-tag that is direct child of div-tag)
+
+M
+qM1 = recursion (clue is encoded in Base64, call itself=recursion)
+qM2 = nBYG (switch case and select last 4 characters)
+qM3 = 1015 (the rightReduce results in -15 and + 1030 gives 1015)
+
+H
+qH1 = bind (🏃‍♂️= run something in console => somethingElse() [twice] that adds a paragraph with clue and an HTML comment => answer: bind the object to the function)
+qH2 = unix (the image is found from the network tab or in the javascript code, it is the image with 2 shelves)
+qH3 = 8421 (the bg tells to run rusk(), rusk gives the generator and its series loops at 8, 4, 2, 1, 4, 2, 1, ...)
