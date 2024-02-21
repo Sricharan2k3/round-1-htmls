@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DIGITAL ODESSEY</title>
+    <style>
+        body {
+            background-color: black;
+            color: #ffff00; /* yellow */
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpapercosmos.com/w/full/2/7/7/41442-3840x2160-desktop-4k-google-background.jpg');
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+            color: #cfe2ff;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #004c8c; /* Dark blue */
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .code-snippet {
+            background-color: white; /* Blue */
+            color: black;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 80%;
+            border-radius: 10px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src='https://media.licdn.com/dms/image/D4E03AQFWNgn2KNrxeA/profile-displayphoto-shrink_800_800/0/1692545918729?e=2147483647&v=beta&t=hf0m5ck2zz62Nu9PIqM5GwCzpXOHpnlCuk3d9OmViYs' width=100 height=100>
+        <h2> Find me if you can and solve me!! </h2>
+        <div class="code-snippet">
+            <pre><code>I'm akin to an array but not mutable at all,
+My elements stay put, resisting every call.
+Data's shield, integrity's guard, I stand tall,
+Python lauds me, immutability's thrall.
+What am I?
+
+</code></pre>
+        </div>
+        <form action="/submit" method="get">
+            <label for="riddle_answer">Enter your answer to the question:</label><br>
+            <input type="text" id="riddle_answer" name="riddle_answer" placeholder="Enter your answer" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const answer = document.getElementById('riddle_answer').value.toLowerCase().trim();
+        const clue = document.getElementById('result');
+        if (answer === 'tuple' || answer === 'tuple' || answer === 'tuple') {
+            clue.textContent = 'Congratulations! the clue is tuple!';
+        } else {
+            clue.textContent = 'Try again.';
+        }
+    });
+</script>
+
+</body>
+</html>
+
