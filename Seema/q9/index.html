@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Unscramble Puzzle Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    #container {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #word {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #guessInput {
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    #submitGuess {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Unscramble Puzzle Game</h1>
+    <div id="word"></div>
+    <p>Unscramble the word:</p>
+    <input type="text" id="guessInput" placeholder="Enter your guess">
+    <button id="submitGuess" onclick="checkGuess()">Submit Guess</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const words = ["robotic", "computer", "algorithm", "software", "hardware"];
+    let currentWordIndex = Math.floor(Math.random() * words.length);
+    let scrambledWord = scrambleWord(words[currentWordIndex]);
+
+    function scrambleWord(word) {
+      return word.split('').sort(() => Math.random() - 0.5).join('');
+    }
+
+    function renderWord() {
+      document.getElementById('word').textContent = scrambledWord;
+    }
+
+    function checkGuess() {
+      const guess = document.getElementById('guessInput').value.trim().toLowerCase();
+      if (guess === words[currentWordIndex]) {
+        document.getElementById('result').textContent = 'Congratulations! You unscrambled the word!';
+        setTimeout(() => {
+          resetGame();
+        }, 2000);
+      } else {
+        document.getElementById('result').textContent = 'Incorrect guess. Try again.';
+      }
+    }
+
+    function resetGame() {
+      currentWordIndex = Math.floor(Math.random() * words.length);
+      scrambledWord = scrambleWord(words[currentWordIndex]);
+      document.getElementById('guessInput').value = '';
+      document.getElementById('result').textContent = '';
+      renderWord();
+    }
+
+    renderWord();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+

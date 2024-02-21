@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+  <title>Web Dev Word Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #puzzle {
+      width: 240px;
+      background-color: rgba(255, 255, 255, 0.8); 
+      padding: 20px;
+      display: inline-block;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    table, td {
+      border: 1px solid black;
+    }
+
+    td {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      font-size: 20px;
+      cursor: pointer; 
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    #answer-box {
+      margin-top: 20px;
+      width: 150px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #answer-box label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #answer-box input[type="text"] {
+      width: calc(100% - 22px); 
+      padding: 5px;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+    }
+
+    #answer-box button {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="puzzle">
+    <h2>Web Development Word Search</h2>
+    <table>
+      <tr>
+        <td>T</td>
+        <td>E</td>
+        <td>S</td>
+        <td>D</td>
+        <td>A</td>
+        <td>R</td>
+        <td>N</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td>R</td>
+        <td>O</td>
+        <td>M</td>
+        <td>S</td>
+        <td>A</td>
+        <td>S</td>
+        <td>A</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>O</td>
+        <td>A</td>
+        <td>C</td>
+        <td>I</td>
+        <td>R</td>
+        <td>L</td>
+        <td>D</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>H</td>
+        <td>A</td>
+        <td>O</td>
+        <td>W</td>
+        <td>N</td>
+        <td>W</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>N</td>
+        <td>D</td>
+        <td>K</td>
+        <td>A</td>
+        <td>R</td>
+        <td>V</td>
+        <td>G</td>
+        <td>G</td>
+      </tr>
+      <tr>
+        <td>S</td>
+        <td>S</td>
+        <td>Q</td>
+        <td>B</td>
+        <td>O</td>
+        <td>L</td>
+        <td>X</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>L</td>
+        <td>I</td>
+        <td>J</td>
+        <td>U</td>
+        <td>R</td>
+        <td>U</td>
+        <td>W</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>F</td>
+        <td>D</td>
+        <td>A</td>
+        <td>T</td>
+        <td>A</td>
+        <td>I</td>
+        <td>K</td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="answer-box">
+    <label for="answer">Puzzle Answer:</label>
+    <input type="text" id="answer" placeholder="Enter here">
+    <button onclick="checkAnswer()">Submit Answer</button>
+  </div>
+
+  <script>
+    
+    function checkAnswer() {
+      const userAnswer = document.getElementById('answer').value.toLowerCase();
+      const correctAnswer = 'data'; 
+
+      if (userAnswer === correctAnswer) {
+        alert('Congratulations! You solved the puzzle!');
+      } else {
+        alert('Incorrect answer. Please try again.');
+      }
+    }
+
+    
+    document.querySelectorAll('td').forEach(td => {
+      td.addEventListener('click', () => {
+        td.classList.toggle('highlight');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

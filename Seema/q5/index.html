@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Find the Hidden Word</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .word {
+    position: absolute;
+    color: #333;
+    font-size: 20px; 
+    animation: float 5s infinite;
+  }
+
+  .hidden {
+    color: #f2f2f2; 
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0); 
+    }
+    50% {
+      transform: translateY(-30px) translateX(20px); 
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+
+  .submit-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .submit-input {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .message {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .success {
+    color: green;
+  }
+</style>
+</head>
+<body>
+
+<div class="submit-container">
+  <input type="text" id="codeInput" class="submit-input" placeholder="Enter the code">
+  <button type="button" class="submit-btn" onclick="checkCode()">Submit</button>
+  <div class="message" id="message"></div>
+</div>
+
+<script>
+  function checkCode() {
+    var codeInput = document.getElementById('codeInput').value.toLowerCase();
+    var message = document.getElementById('message');
+
+    if (codeInput === 'pycharm') {
+      message.innerHTML = '<p class="success">Congratulations! You entered the correct code.</p>';
+    } else {
+      message.innerHTML = '';
+    }
+  }
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function generateRandomWord() {
+    var words = ['Algorithm', 'Database', 'Network', 'Software', 'Hardware', 'Cloud', 'Cybersecurity', 'Encryption', 'Firewall', 'Artificial Intelligence', 'Machine Learning', 'Virtual Reality', 'Augmented Reality', 'Internet of Things', 'Blockchain', 'Cryptocurrency', 'API (Application Programming Interface)', 'HTML (Hypertext Markup Language)', 'CSS (Cascading Style Sheets)', 'JavaScript', 'Python', 'Java', 'C++', 'Ruby', 'Swift', 'Kotlin', 'PHP', 'SQL (Structured Query Language)', 'React', 'Angular', 'Vue.js', 'Node.js', 'MongoDB', 'Docker', 'Kubernetes', 'DevOps', 'Agile', 'Scrum', 'Git', 'GitHub', 'Bitbucket', 'Jenkins', 'Continuous Integration', 'Continuous Deployment', 'Microservices', 'RESTful API', 'GraphQL', 'Big Data', 'Data Science', 'Data Analytics', 'Data Visualization', 'Cyberattack', 'Malware', 'Virus', 'Trojan', 'Phishing', 'Social Engineering', 'Biometrics', 'Quantum Computing', 'Digital Transformation'];
+
+    return words[getRandomInt(0, words.length - 1)];
+  }
+
+  function createFloatingWords() {
+    var container = document.body;
+    for (var i = 0; i < 50; i++) {
+      var word = generateRandomWord();
+      var span = document.createElement('span');
+      span.textContent = word;
+      span.className = 'word';
+      if (word === 'pycharm') {
+        span.classList.add('hidden');
+      }
+      span.style.left = getRandomInt(0, window.innerWidth) + 'px';
+      span.style.top = getRandomInt(0, window.innerHeight) + 'px';
+      container.appendChild(span);
+    }
+  }
+
+  createFloatingWords();
+</script>
+
+</body>
+</html>
+
+
+
+
+

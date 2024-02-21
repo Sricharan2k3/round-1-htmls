@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+<title>Hidden Text in Video</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('bg.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+
+  .video-container {
+    position: relative;
+    width: 640px; 
+    height: 360px; 
+    margin: auto;
+    margin-top: 50px;
+    overflow: hidden;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .passcode-input {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .passcode-input input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .passcode-input button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .passcode-input button:hover {
+    background-color: #0056b3;
+  }
+
+  .message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  .success {
+    color: green;
+  }
+
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<div class="video-container">
+  <video controls>
+    <source src="pexels_videos_2278095 (1080p).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div class="passcode-input">
+  <input type="text" id="passcodeInput" placeholder="Enter the passcode">
+  <button onclick="checkPasscode()">Submit</button>
+</div>
+
+<div class="message" id="message"></div>
+
+<script>
+  function checkPasscode() {
+    var passcode = document.getElementById('passcodeInput').value.toLowerCase();
+    var message = document.getElementById('message');
+
+    if (passcode === 'pycharm') {
+      message.innerHTML = '<p class="success">Congratulations! You found the hidden text.</p>';
+    } else {
+      message.innerHTML = '<p class="error">Incorrect passcode. Try again.</p>';
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
