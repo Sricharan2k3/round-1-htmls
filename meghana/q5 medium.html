@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Task</title>
+    <style>
+        .hidden-element {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Innovative Task</h1>
+    <p>Welcome to the innovative task! Your challenge is to unscramble the word below.</p>
+    <p><strong>Scrambled Word:</strong> <span id="scrambled-word">UDOLEG CLODU</span></p>
+    <p><strong>Hint:</strong> It's a suite of cloud computing services provided by Google!</p>
+    
+    <form onsubmit="checkAnswer(); return false;">
+        <label for="answer">Enter the unscrambled word:</label><br>
+        <input type="text" id="answer" name="answer" placeholder="Unscrambled Word"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="result" class="hidden-element"></p>
+
+    <script>
+        // List of words to unscramble
+        var words = ["Google Cloud", "Amazon Web Services", "Microsoft Azure", "IBM Cloud", "Alibaba Cloud"];
+        // Randomly select a word
+        var scrambledWord = words[Math.floor(Math.random() * words.length)];
+        // Display the scrambled word
+        document.getElementById("scrambled-word").textContent = scrambleWord(scrambledWord);
+
+        // Function to scramble a word
+        function scrambleWord(word) {
+            return word.split('').sort(function(){return 0.5-Math.random()}).join('');
+        }
+
+        // Function to check the user's answer
+        function checkAnswer() {
+            var userAnswer = document.getElementById("answer").value.trim().toUpperCase();
+            var correctAnswer = scrambledWord.toUpperCase();
+
+            if (userAnswer === correctAnswer) {
+                document.getElementById("result").textContent = "Hooray! That's correct! 🎉";
+                document.getElementById("result").classList.remove("hidden-element");
+            } else {
+                document.getElementById("result").textContent = "Oops! That's not the correct word. Try again.";
+                document.getElementById("result").classList.remove("hidden-element");
+            }
+        }
+    </script>
+</body>
+</html>
